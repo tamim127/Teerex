@@ -1,4 +1,4 @@
-# Aayush Bharti Portfolio — Next.js Migration
+# Portfolio — Next.js Migration
 
 A modern, high-fidelity Next.js App Router migration of Aayush Bharti's portfolio ([aayushbharti.in](https://aayushbharti.in/)).
 
