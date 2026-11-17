@@ -24,26 +24,33 @@ pre>code{background:0 0!important;border-radius:0!important;padding:0!important}
 
 
 /* Responsive Navigation Visibility */
-@media (max-width: 767px) {
-  .nav-desktop-pill {
+@media (max-width: 1023px) {
+  .nav-desktop-view {
     display: none !important;
   }
-  .nav-mobile-pill {
+  .nav-mobile-view {
     display: block !important;
   }
-  .nav-search-button {
+  .Qq36h3Tu {
     display: none !important;
+  }
+  .r7rXnV7I {
+    width: 190px !important;
+  }
+  .viTwDePg {
+    width: 190px !important;
+    height: 44px !important;
   }
 }
 
-@media (min-width: 768px) {
-  .nav-desktop-pill {
+@media (min-width: 1024px) {
+  .nav-desktop-view {
     display: block !important;
   }
-  .nav-mobile-pill {
+  .nav-mobile-view {
     display: none !important;
   }
-  .nav-search-button {
+  .Qq36h3Tu {
     display: inline-flex !important;
   }
 }

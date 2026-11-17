@@ -346,7 +346,6 @@ export default function Navbar() {
   const [hoveredTab, setHoveredTab] = useState<NavItem | null>(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
 
-  const moreDropdownRef = useRef<HTMLLIElement>(null);
   const navContainerRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const openTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
@@ -427,7 +426,7 @@ export default function Navbar() {
     setHoveredTab({ id: "more", href: "", label: "More", width: 84, offset: 268 });
     openTimeoutRef.current = setTimeout(() => {
       setIsMoreOpen(true);
-    }, 150);
+    }, 120);
   };
 
   const handleMoreMouseLeave = () => {
@@ -520,23 +519,30 @@ export default function Navbar() {
           {/* Central Pill Navigation */}
           <div className="TxJWQrXF" ref={navContainerRef}>
             <div className="YY778nJx">
-              {/* Desktop Pill (>= 768px) */}
-              <div className="nav-desktop-pill">
-                <div aria-hidden="true" className="r7rXnV7I" style={{ width: "464px" }}></div>
-                <div
-                  className={`viTwDePg glass-pill ${isMoreOpen ? "lWhLmzZe" : ""}`}
-                  id="js-nav-content"
-                  style={{
-                    borderRadius: "22px",
-                    opacity: 1,
-                    width: isMoreOpen ? "612px" : "464px",
-                    height: isMoreOpen ? "326px" : "44px",
-                    transition: "width 0.3s cubic-bezier(0.32, 0.72, 0, 1), height 0.3s cubic-bezier(0.32, 0.72, 0, 1)",
-                    overflow: "hidden",
-                  }}
-                  onMouseEnter={handleDropdownBodyMouseEnter}
-                  onMouseLeave={handleDropdownBodyMouseLeave}
-                >
+              {/* Spacer Placeholder setting width */}
+              <div
+                aria-hidden="true"
+                className="r7rXnV7I"
+                style={{ width: isMoreOpen ? "464px" : "464px" }}
+              />
+
+              {/* Seamless Pill / Expandable Dropdown Container */}
+              <div
+                className={`viTwDePg glass-pill ${isMoreOpen ? "lWhLmzZe" : ""}`}
+                id="js-nav-content"
+                style={{
+                  borderRadius: "22px",
+                  opacity: 1,
+                  width: isMoreOpen ? "612px" : "464px",
+                  height: isMoreOpen ? "326px" : "44px",
+                  transition: "width 0.32s cubic-bezier(0.32, 0.72, 0, 1), height 0.32s cubic-bezier(0.32, 0.72, 0, 1)",
+                  overflow: "hidden",
+                }}
+                onMouseEnter={handleDropdownBodyMouseEnter}
+                onMouseLeave={handleDropdownBodyMouseLeave}
+              >
+                {/* 1. Desktop View (>= 1024px) */}
+                <div className="nav-desktop-view w-full h-full">
                   <div className="YcnvxVaA">
                     {/* Top Row: Items + More + Book a Call */}
                     <div className="UTH4R7lB" onMouseLeave={() => setHoveredTab(null)}>
@@ -549,7 +555,7 @@ export default function Navbar() {
                           transform: indicatorTransform,
                           transition: "transform 0.24s cubic-bezier(0.32, 0.72, 0, 1), width 0.24s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.2s ease",
                         }}
-                      ></span>
+                      />
 
                       <ul className="bjccYXPY">
                         {NAV_ITEMS.map((item) => {
@@ -586,7 +592,6 @@ export default function Navbar() {
                         <li
                           className="YLupmxaw relative"
                           data-nav-id="more-dropdown"
-                          ref={moreDropdownRef}
                           onMouseEnter={handleMoreMouseEnter}
                           onMouseLeave={handleMoreMouseLeave}
                         >
@@ -611,7 +616,7 @@ export default function Navbar() {
                               viewBox="0 0 24 24"
                               width="24"
                               xmlns="http://www.w3.org/2000/svg"
-                              className={`U1lOidJ7 size-3.5 transition-transform duration-200 ${isMoreOpen ? "P7yVKJGP" : ""}`}
+                              className={`U1lOidJ7 size-3.5 transition-transform duration-200 ${isMoreOpen ? "rotate-180" : ""}`}
                             >
                               <path
                                 d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
@@ -639,7 +644,7 @@ export default function Navbar() {
                       </ul>
                     </div>
 
-                    {/* Expanded Dropdown Content (Matches User Screenshot) */}
+                    {/* Expanded Dropdown Content (Matches User Screenshot & Reference Site) */}
                     {isMoreOpen && (
                       <div
                         className="HTcz4I92 animate-in fade-in-0 duration-200"
@@ -658,7 +663,7 @@ export default function Navbar() {
                                 <li className="A98AvHDD" key={item.href}>
                                   <Link
                                     aria-current={isCurrent ? "page" : undefined}
-                                    className="AfeFrmww"
+                                    className="AfeFrmww relative flex items-center gap-3 px-2.5 py-1.5 rounded-[10px] text-left transition-colors"
                                     data-cuelume-navigate="select"
                                     href={item.href}
                                     onMouseEnter={() => setSelectedMoreIdx(idx)}
@@ -669,25 +674,33 @@ export default function Navbar() {
                                     {isSelected && (
                                       <span
                                         aria-hidden="true"
-                                        className="absolute inset-0 rounded-[10px] bg-black/[0.07] shadow-[inset_0_0_0_0.5px_rgb(0_0_0/0.05)] dark:bg-white/[0.09] dark:shadow-[inset_0_1px_0_rgb(255_255_255/0.06)] pointer-events-none transition-all duration-150"
+                                        className="absolute inset-0 rounded-[10px] bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] pointer-events-none transition-all duration-150"
                                       />
                                     )}
 
                                     {/* Tinted Gradient Icon */}
                                     <span
-                                      className={`relative flex size-7 shrink-0 items-center justify-center rounded-[8px] bg-gradient-to-b shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_1px_3px_rgb(0_0_0/0.3)] ${item.tintGradient}`}
+                                      className={`relative flex size-7 shrink-0 items-center justify-center rounded-[8px] bg-gradient-to-b shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_1px_3px_rgba(0,0,0,0.3)] ${item.tintGradient}`}
                                     >
                                       {item.icon}
                                     </span>
 
                                     {/* Titles & Descriptions */}
-                                    <span className="UcHojnm0">
-                                      <span className="aPi30Rka">{item.title}</span>
-                                      <span className="i8uhGPFK">{item.description}</span>
+                                    <span className="UcHojnm0 flex flex-col flex-1 min-w-0">
+                                      <span className="aPi30Rka text-[13.5px] font-medium text-white/90 leading-tight">
+                                        {item.title}
+                                      </span>
+                                      <span className="i8uhGPFK text-[11px] text-neutral-400 truncate leading-tight mt-0.5">
+                                        {item.description}
+                                      </span>
                                     </span>
 
                                     {/* Current indicator */}
-                                    {isCurrent && <span className="AY0sZtdB">Current</span>}
+                                    {isCurrent && (
+                                      <span className="AY0sZtdB text-[11px] text-blue-400 font-medium shrink-0">
+                                        Current
+                                      </span>
+                                    )}
                                   </Link>
                                 </li>
                               );
@@ -695,30 +708,30 @@ export default function Navbar() {
                           </ul>
 
                           {/* Right Column: Visual Preview Card */}
-                          <div className="B10ibJY9">
-                            <div className="Y5wdnXKj overflow-hidden">
+                          <div className="B10ibJY9 flex flex-col gap-2">
+                            <div className="Y5wdnXKj relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-white/10 bg-neutral-900/60 shadow-inner">
                               <img
-                                alt=""
-                                className="JrQJkPKf size-full object-cover object-top"
-                                src={activeMoreItem.shot.light}
-                              />
-                              <img
-                                alt=""
-                                className="s3B7WN3c size-full object-cover object-top"
+                                alt={activeMoreItem.title}
+                                className="absolute inset-0 size-full object-cover object-top transition-opacity duration-200"
                                 src={activeMoreItem.shot.dark}
                               />
-                              <span aria-hidden="true" className="XDuEjiLc" />
+                              <span
+                                aria-hidden="true"
+                                className="pointer-events-none absolute inset-0 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]"
+                              />
                             </div>
-                            <span className="MGeZZ5dU">
-                              <span className="Ld2dhrN2">{activeMoreItem.title}</span>
-                              <span className="mnWRQLjO">aayushbharti.in{activeMoreItem.href}</span>
-                            </span>
+                            <div className="MGeZZ5dU flex items-center justify-between px-1 text-[11.5px]">
+                              <span className="Ld2dhrN2 font-medium text-white/80">{activeMoreItem.title}</span>
+                              <span className="mnWRQLjO text-neutral-500 font-mono text-[11px]">
+                                aayushbharti.in{activeMoreItem.href}
+                              </span>
+                            </div>
                           </div>
                         </div>
 
                         {/* Bottom Integrated Search Bar */}
                         <button
-                          className="WPM70boD group/search"
+                          className="WPM70boD group/search w-full mt-2.5 pt-2 flex items-center justify-between border-t border-white/[0.08] px-2 text-neutral-400 hover:text-white transition-colors cursor-pointer"
                           data-command-menu-trigger=""
                           type="button"
                           onClick={() => {
@@ -726,7 +739,7 @@ export default function Navbar() {
                             setIsSearchOpen(true);
                           }}
                         >
-                          <span className="s93OBtdY">
+                          <span className="s93OBtdY flex items-center gap-2 text-xs">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="1em"
@@ -739,35 +752,32 @@ export default function Navbar() {
                             </svg>
                             Search posts, projects and pages
                           </span>
-                          <span className="ar2YuVQ4">
-                            <kbd className="z26iA6rc">⌘</kbd>
-                            <kbd className="z26iA6rc">K</kbd>
+                          <span className="ar2YuVQ4 flex items-center gap-1">
+                            <kbd className="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 text-[10px] text-neutral-300">
+                              ⌘
+                            </kbd>
+                            <kbd className="rounded border border-white/10 bg-white/5 px-1.5 py-0.5 text-[10px] text-neutral-300">
+                              K
+                            </kbd>
                           </span>
                         </button>
                       </div>
                     )}
                   </div>
                 </div>
-              </div>
 
-              {/* Mobile Pill (< 768px) */}
-              <div className="nav-mobile-pill">
-                <div aria-hidden="true" className="r7rXnV7I" style={{ width: "190px" }}></div>
-                <div
-                  className="viTwDePg glass-pill"
-                  id="js-nav-content-mobile"
-                  style={{ borderRadius: "22px", opacity: 1, width: "190px", height: "44px" }}
-                >
-                  <div className="sB07pUME" style={{ opacity: 1, transform: "none" }}>
+                {/* 2. Mobile View (< 1024px) - Clean single pill without any overlapping button */}
+                <div className="nav-mobile-view w-full h-full">
+                  <div className="sB07pUME flex items-center justify-center h-full">
                     <button
                       aria-label="Open menu"
-                      className="flex min-w-46 cursor-pointer items-center gap-2 px-2.5 py-1 EOk6K5IK"
+                      className="flex w-full cursor-pointer items-center justify-between px-3.5 py-1.5 outline-none"
                       data-command-menu-trigger=""
                       draggable="false"
                       type="button"
                       onClick={() => setIsSearchOpen(true)}
                     >
-                      <svg className="ZclEPDsZ size-6" viewBox="0 0 5350 5350" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="ZclEPDsZ size-6 shrink-0" viewBox="0 0 5350 5350" xmlns="http://www.w3.org/2000/svg">
                         <path
                           className="xlGzLZsj"
                           d="M295.4 4070A71.2 71.2 0 0 1 231.3 3967.7L1832.6 665.4A62.7 62.7 0 0 1 1945.4 665.4L3546.7 3967.7A71.2 71.2 0 0 1 3482.6 4070L2969.6 4070A113.7 113.7 0 0 1 2867.3 4005.9L1945.4 2104.6A62.7 62.7 0 0 0 1832.6 2104.6L910.7 4005.9A113.7 113.7 0 0 1 808.4 4070L295.4 4070Z"
@@ -777,17 +787,17 @@ export default function Navbar() {
                           d="M2337.9 732.3A71.2 71.2 0 0 1 2402 630L3960.8 630A959.2 959.2 0 0 1 4757.7 2123.1A90 90 0 0 0 4779 2245.6A1010.8 1010.8 0 0 1 4179.2 4070L4027.5 4070A113.7 113.7 0 0 1 3925.2 4005.9L3705.3 3552.3A71.2 71.2 0 0 1 3769.4 3450L4099.2 3450A420.8 420.8 0 0 0 4099.2 2608.4L3318.8 2608.4A113.7 113.7 0 0 1 3216.5 2544.3L2996.5 2090.7A71.2 71.2 0 0 1 3060.6 1988.4L3910.8 1988.4A369.2 369.2 0 0 0 3910.8 1250L2660.1 1250A113.7 113.7 0 0 1 2557.8 1185.9L2337.9 732.3Z"
                         />
                       </svg>
-                      <span className="iOCBjBZ4">aayush</span>
+                      <span className="iOCBjBZ4 font-medium text-white/90 text-sm">aayush</span>
                     </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Search (⌘K) Trigger Button */}
+            {/* Desktop Search (⌘K) Trigger Button */}
             <button
               aria-label="Search (⌘K)"
-              className={`Qq36h3Tu nav-search-button group/search size-9 glass-pill QUG9utTP cursor-pointer transition-all duration-200 ${
+              className={`Qq36h3Tu group/search size-9 glass-pill QUG9utTP cursor-pointer transition-all duration-200 ${
                 isMoreOpen ? "Bwb3h0t3 opacity-0 pointer-events-none scale-90" : ""
               }`}
               data-command-menu-trigger=""
@@ -852,34 +862,32 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Split Content Body: Results List + Live Preview Card */}
-            <div className="flex h-[min(460px,65vh)] overflow-hidden">
-              {/* Left Column: Interactive List */}
-              <div className="flex-1 overflow-y-auto p-2 scrollbar-thin divide-y divide-white/[0.04]">
+            {/* Results Grid / Columns */}
+            <div className="flex max-h-[460px] min-h-[300px]">
+              {/* Left Column: Result List */}
+              <div className="flex-1 overflow-y-auto p-2 space-y-4">
                 {filteredResults.length === 0 ? (
-                  <div className="flex h-32 items-center justify-center text-xs text-neutral-500">
-                    No matching results found for &ldquo;{searchQuery}&rdquo;
-                  </div>
+                  <div className="py-12 text-center text-sm text-neutral-500">No results found for &ldquo;{searchQuery}&rdquo;</div>
                 ) : (
                   (["Latest", "Pages", "More", "Elsewhere"] as const).map((cat) => {
-                    const groupItems = filteredResults.filter((item) => item.category === cat);
-                    if (groupItems.length === 0) return null;
+                    const catItems = filteredResults.filter((item) => item.category === cat);
+                    if (catItems.length === 0) return null;
+
                     return (
-                      <div key={cat} className="py-1.5">
-                        <div className="px-3 py-1 text-[11px] font-medium text-neutral-500 tracking-wider uppercase">
-                          {cat}
-                        </div>
-                        <div className="flex flex-col gap-0.5">
-                          {groupItems.map((item) => {
+                      <div key={cat} className="space-y-1">
+                        <div className="px-3 text-[11px] font-medium uppercase tracking-wider text-neutral-500">{cat}</div>
+                        <div className="space-y-0.5">
+                          {catItems.map((item) => {
                             const itemIndex = filteredResults.indexOf(item);
                             const isSelected = itemIndex === selectedIdx;
+
                             return (
                               <button
                                 key={item.id}
-                                className={`group flex w-full items-center gap-3 px-3 py-2 rounded-xl text-left text-xs transition-colors cursor-pointer ${
+                                className={`flex w-full items-center gap-3 px-3 py-2 rounded-xl text-left text-sm transition-all cursor-pointer ${
                                   isSelected
-                                    ? "bg-white/[0.1] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
-                                    : "text-neutral-300 hover:bg-white/[0.05] hover:text-white"
+                                    ? "bg-white/10 text-white shadow-sm"
+                                    : "text-neutral-300 hover:bg-white/5 hover:text-white"
                                 }`}
                                 type="button"
                                 onMouseEnter={() => setSelectedIdx(itemIndex)}
