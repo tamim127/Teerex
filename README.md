@@ -1,6 +1,6 @@
 # Portfolio — Next.js Migration
 
-A modern, high-fidelity Next.js App Router migration of Aayush Bharti's portfolio ([aayushbharti.in](https://aayushbharti.in/)).
+A modern, high-fidelity Next.js App Router migration of Tamiul Alam's portfolio ([tamiulalam.com](https://tamiulalam.com/)).
 
 ## Tech Stack
 
@@ -59,22 +59,22 @@ A modern, high-fidelity Next.js App Router migration of Aayush Bharti's portfoli
 
 ## Measured Parity Benchmarks (`/about`)
 
-Audited with automated Chrome DevTools Protocol (CDP) headless capture against live reference `https://aayushbharti.in/about`:
+Audited with automated Chrome DevTools Protocol (CDP) headless capture against live reference `https://tamiulalam.com/about`:
 
-| Checkpoint | Reference | Local | Match Rate |
-|---|---|---|---|
+| Checkpoint                      | Reference   | Local       | Match Rate |
+| ------------------------------- | ----------- | ----------- | ---------- |
 | **Desktop Viewport (1440x900)** | 1425 x 5354 | 1425 x 5293 | **91.01%** |
-| **Tablet Viewport (768x1024)** | 768 x 6475 | 768 x 6398 | **88.24%** |
-| **Mobile Viewport (390x844)** | 390 x 7416 | 390 x 7345 | **93.13%** |
-| **Scroll 0% (0px)** | 1440 x 900 | 1440 x 900 | **90.98%** |
-| **Scroll 10% (445px)** | 1440 x 900 | 1440 x 900 | **96.16%** |
-| **Scroll 25% (1114px)** | 1440 x 900 | 1440 x 900 | **98.30%** |
-| **Scroll 50% (2227px)** | 1440 x 900 | 1440 x 900 | **95.72%** |
-| **Scroll 75% (3341px)** | 1440 x 900 | 1440 x 900 | **73.30%** |
-| **Scroll 90% (4009px)** | 1440 x 900 | 1440 x 900 | **60.96%** |
-| **Scroll 100% (4454px)** | 1440 x 900 | 1440 x 900 | **74.28%** |
+| **Tablet Viewport (768x1024)**  | 768 x 6475  | 768 x 6398  | **88.24%** |
+| **Mobile Viewport (390x844)**   | 390 x 7416  | 390 x 7345  | **93.13%** |
+| **Scroll 0% (0px)**             | 1440 x 900  | 1440 x 900  | **90.98%** |
+| **Scroll 10% (445px)**          | 1440 x 900  | 1440 x 900  | **96.16%** |
+| **Scroll 25% (1114px)**         | 1440 x 900  | 1440 x 900  | **98.30%** |
+| **Scroll 50% (2227px)**         | 1440 x 900  | 1440 x 900  | **95.72%** |
+| **Scroll 75% (3341px)**         | 1440 x 900  | 1440 x 900  | **73.30%** |
+| **Scroll 90% (4009px)**         | 1440 x 900  | 1440 x 900  | **60.96%** |
+| **Scroll 100% (4454px)**        | 1440 x 900  | 1440 x 900  | **74.28%** |
 
-*Note: Differences in lower scroll positions (75%–100%) reflect real-time live clock ticking (IST time display), continuous spinning keyframe animations (`#_S_1_` SVG path rotating dial), and floating sticky glass pill.*
+_Note: Differences in lower scroll positions (75%–100%) reflect real-time live clock ticking (IST time display), continuous spinning keyframe animations (`#_S_1_` SVG path rotating dial), and floating sticky glass pill._
 
 ## Getting Started
 

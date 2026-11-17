@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Aayush Bharti — AI Full-Stack Engineer",
+  title: "Tamiul Alam — AI Full-Stack Engineer",
   description: "AI full-stack engineer building production web apps end to end, from polished interfaces to LLM features. Remote from India, 3+ years shipping.",
   icons: {
     icon: "/favicon.ico",

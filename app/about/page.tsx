@@ -7,7 +7,7 @@ import AboutGithub from "@/components/about/AboutGithub";
 import AboutCommunity from "@/components/about/AboutCommunity";
 
 export const metadata = {
-  title: "About | Journey, Skills & Experience — Aayush Bharti",
+  title: "About | Journey, Skills & Experience — Tamiul Alam",
   description: "AI full-stack engineer building production web apps end to end, from polished interfaces to LLM features. Remote from India, 3+ years shipping.",
 };
 

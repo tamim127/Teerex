@@ -225,7 +225,7 @@ export default function AboutGithub() {
             <div className="lMzuZiwz" data-tray="">
               <div className="group relative flex w-full flex-col justify-between overflow-hidden rounded-3xl bg-surface transition-all duration-300 dark:bg-card/15 ring-1 ring-border in-data-tray:bg-[#F7F7F8] dark:in-data-tray:bg-[#0f0f10] in-data-tray:hover:bg-white dark:in-data-tray:hover:bg-[#131314] p-4 hover:bg-surface md:p-8 dark:hover:bg-card/15">
                 <div className="bfsHiAXf">
-                  <a className="KthBPMWM group/profile" href="https://github.com/AayushBharti" rel="noopener noreferrer" target="_blank">
+                  <a className="KthBPMWM group/profile" href="https://github.com/tamim127" rel="noopener noreferrer" target="_blank">
                     <img
                       alt=""
                       loading="lazy"
@@ -234,10 +234,10 @@ export default function AboutGithub() {
                       decoding="async"
                       className="AucUsqus size-11"
                       style={{ color: "transparent" } as React.CSSProperties}
-                      src="/external/AayushBharti.png"
+                      src="/external/tamim127.png"
                     />
                     <span className="PbCYLKZw">
-                      <span className="yuirG2HH">@AayushBharti</span>
+                      <span className="yuirG2HH">@tamim127</span>
                       <span className="bVbmtuPL">
                         GitHub
                         <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" className="WOm6BsVu size-3">
@@ -264,19 +264,19 @@ export default function AboutGithub() {
                           </span>
                           <ul className="cDy3HfIc">
                             <li className="NWwraJYs">
-                              <a className="NWwraJYs group/stat" href="https://github.com/AayushBharti?tab=repositories&sort=stargazers" rel="noopener noreferrer" target="_blank">
+                              <a className="NWwraJYs group/stat" href="https://github.com/tamim127?tab=repositories&sort=stargazers" rel="noopener noreferrer" target="_blank">
                                 <span className="u3dOmmcs">663</span>
                                 <span className="QWZBTbwk">stars</span>
                               </a>
                             </li>
                             <li className="NWwraJYs">
-                              <a className="NWwraJYs group/stat" href="https://github.com/AayushBharti?tab=followers" rel="noopener noreferrer" target="_blank">
+                              <a className="NWwraJYs group/stat" href="https://github.com/tamim127?tab=followers" rel="noopener noreferrer" target="_blank">
                                 <span className="u3dOmmcs">370</span>
                                 <span className="QWZBTbwk">followers</span>
                               </a>
                             </li>
                             <li className="NWwraJYs">
-                              <a className="NWwraJYs group/stat" href="https://github.com/AayushBharti?tab=repositories" rel="noopener noreferrer" target="_blank">
+                              <a className="NWwraJYs group/stat" href="https://github.com/tamim127?tab=repositories" rel="noopener noreferrer" target="_blank">
                                 <span className="u3dOmmcs">97</span>
                                 <span className="QWZBTbwk">forks</span>
                               </a>

@@ -51,8 +51,8 @@ const PROJECTS: ProjectData[] = [
       "Per-second WPM and consistency breakdown",
       "Works offline as a PWA",
     ],
-    liveUrl: "https://keythm.aayushbharti.in",
-    codeUrl: "https://github.com/aayushbharti/keythm",
+    liveUrl: "https://keythm.tamiulalam.com",
+    codeUrl: "https://github.com/tamim127/keythm",
     caseStudyUrl: "/projects/keythm",
     images: [
       {
@@ -82,8 +82,8 @@ const PROJECTS: ProjectData[] = [
       "Instructors upload videos and track earnings",
       "Rate-limited, sanitized Express API",
     ],
-    liveUrl: "https://academy.aayushbharti.in",
-    codeUrl: "https://github.com/AayushBharti/Zenith-Academy",
+    liveUrl: "https://academy.tamiulalam.com",
+    codeUrl: "https://github.com/tamim127/Zenith-Academy",
     caseStudyUrl: "/projects/nextdemy",
     images: [
       {
@@ -113,8 +113,8 @@ const PROJECTS: ProjectData[] = [
       "Sanity visual editing with live preview",
       "Fuzzy search across pitches and posts",
     ],
-    liveUrl: "https://venture-den.aayushbharti.in",
-    codeUrl: "https://github.com/AayushBharti/VentureDen",
+    liveUrl: "https://venture-den.tamiulalam.com",
+    codeUrl: "https://github.com/tamim127/VentureDen",
     caseStudyUrl: "/projects/venture-den",
     images: [
       {
@@ -152,8 +152,8 @@ const PROJECTS: ProjectData[] = [
       "Receipt photo on any transaction",
       "Live currency exchange rates",
     ],
-    liveUrl: "https://github.com/AayushBharti/finote-app/releases/",
-    codeUrl: "https://github.com/aayushbharti/finote-app",
+    liveUrl: "https://github.com/tamim127/finote-app/releases/",
+    codeUrl: "https://github.com/tamim127/finote-app",
     caseStudyUrl: "/projects/finote",
     images: [
       {
@@ -199,7 +199,7 @@ const PROJECTS: ProjectData[] = [
       "No backend: fork, rebrand, deploy",
     ],
     liveUrl: "https://ai-saas-landing-starter.vercel.app",
-    codeUrl: "https://github.com/AayushBharti/ai-saas-landing-starter",
+    codeUrl: "https://github.com/tamim127/ai-saas-landing-starter",
     caseStudyUrl: "/projects/star-forge",
     images: [
       {

@@ -285,7 +285,7 @@ const COMMAND_RESULTS: CommandResult[] = [
     category: "Elsewhere",
     title: "GitHub",
     type: "Link",
-    href: "https://github.com/aayushbharti",
+    href: "https://github.com/tamim127",
     tint: "from-[#5a5a5f] to-[#1c1c1f]",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" className="size-3 text-white">
@@ -298,7 +298,7 @@ const COMMAND_RESULTS: CommandResult[] = [
     category: "Elsewhere",
     title: "LinkedIn",
     type: "Link",
-    href: "https://linkedin.com/in/iaayushbharti",
+    href: "https://linkedin.com/in/tamiulalam",
     tint: "from-[#3f95e6] to-[#0a66c2]",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" className="size-3 text-white">
@@ -311,7 +311,7 @@ const COMMAND_RESULTS: CommandResult[] = [
     category: "Elsewhere",
     title: "X (Twitter)",
     type: "Link",
-    href: "https://x.com/iaayushbharti",
+    href: "https://x.com/tamiulalam",
     tint: "from-[#5a5a5f] to-[#1c1c1f]",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" className="size-3 text-white">
@@ -462,7 +462,7 @@ export default function Navbar() {
 
   const handleSelectResult = (item: CommandResult) => {
     if (item.action === "copy-email") {
-      navigator.clipboard.writeText("hello@aayushbharti.in");
+      navigator.clipboard.writeText("hello@tamiulalam.com");
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2000);
       return;
@@ -723,7 +723,7 @@ export default function Navbar() {
                             <div className="MGeZZ5dU flex items-center justify-between px-1 text-[11.5px]">
                               <span className="Ld2dhrN2 font-medium text-white/80">{activeMoreItem.title}</span>
                               <span className="mnWRQLjO text-neutral-500 font-mono text-[11px]">
-                                aayushbharti.in{activeMoreItem.href}
+                                tamiulalam.com{activeMoreItem.href}
                               </span>
                             </div>
                           </div>
@@ -787,7 +787,7 @@ export default function Navbar() {
                           d="M2337.9 732.3A71.2 71.2 0 0 1 2402 630L3960.8 630A959.2 959.2 0 0 1 4757.7 2123.1A90 90 0 0 0 4779 2245.6A1010.8 1010.8 0 0 1 4179.2 4070L4027.5 4070A113.7 113.7 0 0 1 3925.2 4005.9L3705.3 3552.3A71.2 71.2 0 0 1 3769.4 3450L4099.2 3450A420.8 420.8 0 0 0 4099.2 2608.4L3318.8 2608.4A113.7 113.7 0 0 1 3216.5 2544.3L2996.5 2090.7A71.2 71.2 0 0 1 3060.6 1988.4L3910.8 1988.4A369.2 369.2 0 0 0 3910.8 1250L2660.1 1250A113.7 113.7 0 0 1 2557.8 1185.9L2337.9 732.3Z"
                         />
                       </svg>
-                      <span className="iOCBjBZ4 font-medium text-white/90 text-sm">aayush</span>
+                      <span className="iOCBjBZ4 font-medium text-white/90 text-sm">tamim</span>
                     </button>
                   </div>
                 </div>
