@@ -320,6 +320,32 @@ const COMMAND_RESULTS: CommandResult[] = [
     ),
   },
   {
+    id: "elsewhere-whatsapp",
+    category: "Elsewhere",
+    title: "WhatsApp",
+    type: "Link",
+    href: "https://wa.me/8801833866581",
+    tint: "from-[#25D366] to-[#128C7E]",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" className="size-3 text-white">
+        <path d="M187.58,144.84l-25-12a8,8,0,0,0-8,.8l-14.61,11a78.83,78.83,0,0,1-35.59-35.59l11-14.61a8,8,0,0,0,.8-8l-12-25a8.08,8.08,0,0,0-10.19-4.23l-24,8A8,8,0,0,0,64,76,120.12,120.12,0,0,0,180,192a8,8,0,0,0,7.6-4.95l8-24A8.05,8.05,0,0,0,187.58,144.84ZM128,24A104,104,0,0,0,36.18,176.88L24.83,219a8,8,0,0,0,9.81,9.81l42.16-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L49.6,210.36l6.94-27.79a8,8,0,0,0-.68-6.54A88,88,0,1,1,128,216Z" />
+      </svg>
+    ),
+  },
+  {
+    id: "elsewhere-calendly",
+    category: "Elsewhere",
+    title: "Book a Call (Calendly)",
+    type: "Link",
+    href: "https://calendly.com/tamiul-dev/30min",
+    tint: "from-[#006BFF] to-[#0047B3]",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" className="size-3 text-white">
+        <path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Z" />
+      </svg>
+    ),
+  },
+  {
     id: "elsewhere-copy-email",
     category: "Elsewhere",
     title: "Copy email",
@@ -462,7 +488,7 @@ export default function Navbar() {
 
   const handleSelectResult = (item: CommandResult) => {
     if (item.action === "copy-email") {
-      navigator.clipboard.writeText("hello@tamiulalam.com");
+      navigator.clipboard.writeText("tamiul.dev@gmail.com");
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2000);
       return;
@@ -637,9 +663,14 @@ export default function Navbar() {
                             if (isMoreOpen) handleMoreMouseLeave();
                           }}
                         >
-                          <Link className="mfY05KOD wu9g7sY6" href="/contact">
+                          <a
+                            className="mfY05KOD wu9g7sY6"
+                            href="https://calendly.com/tamiul-dev/30min"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             Book a Call
-                          </Link>
+                          </a>
                         </li>
                       </ul>
                     </div>

@@ -8,8 +8,9 @@ import Footer from "@/components/Footer";
 export default function ContactPage() {
   const [copiedAgent, setCopiedAgent] = useState(false);
   const [topic, setTopic] = useState("Freelance project");
-  const [callRequested, setCallRequested] = useState(false);
   const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   const copyAgentPrompt = async () => {
     try {
@@ -21,12 +22,448 @@ export default function ContactPage() {
     }
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`[Portfolio] ${topic} from ${name || "Visitor"}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:tamiul.dev@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <>
       <Navbar />
 
       <main className="wueBDJtZ" id="main" tabIndex={-1}>
-        <script id="contact-page-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"ContactPage\",\"@id\":\"https://tamiulalam.com/contact\",\"url\":\"https://tamiulalam.com/contact\",\"name\":\"Hire Tamiul Alam for freelance work\",\"isPartOf\":{\"@id\":\"https://tamiulalam.com#website\"},\"about\":{\"@id\":\"https://tamiulalam.com#person\"}}" }} /><section className="NiI8HVUU" vt-update="none"><div className="gywsUsrn" style={{"maskImage":"linear-gradient(rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0) 100%)","opacity":"1"} as React.CSSProperties}><img alt="crumpled paper texture" decoding="async" data-nimg="fill" className="SQFVIHpA" style={{"position":"absolute","height":"100%","width":"100%","left":"0","top":"0","right":"0","bottom":"0","color":"transparent"} as React.CSSProperties} sizes="100vw" src="/crumpled-paper.avif" /></div><div aria-hidden="true" className="dhsYwEWb"><div className="pqpIBwim container"><div className="PqKDV40c"><span aria-hidden="true" className="OtybCf2U size-[5px] vgoN9Yn8" data-node="bottom"></span><span aria-hidden="true" className="OtybCf2U size-[5px] OpiMbwgW" data-node="bottom"></span></div></div></div><div className="container"><div className="oxcIHtd0"><div className="Yn0gPmZu"><div className="LqigqpBD"><div className="LqigqpBD"><p className="uKx3AiAD">Get in touch</p><h1 className="Qqhk5t4K">Tell me <span className="mask-sweep animate-mask-sweep"><span className="IoXF2GxW animate-gradient-x text-colorfull">what you're building</span></span></h1><p className="ybDV5o4p">I reply within 48 hours, and I read every message.</p><div className="SRMAxSgT"><button className="JScAPANj group/agent" title="Book me a call with Tamiul Alam. The steps are at https://tamiulalam.com/agents.md. Ask me for anything you need first." type="button"><span aria-hidden="true" className="BnQDzJZN"><span className="vOIuvics size-8"><img alt="" className="size-4" height="16" src="/icons/sprite.svg?v=f8e25413c1#claude" width="16" /></span><span className="vOIuvics size-8"><img alt="" className="u7mJzVY5 size-4" height="16" src="/icons/sprite.svg?v=f8e25413c1#chatgpt" width="16" /></span><span className="vOIuvics size-8"><img alt="" className="size-4" height="16" src="/icons/sprite.svg?v=f8e25413c1#gemini" width="16" /></span></span><span aria-live="polite" className="K06gpmk7">Let your agent book a call</span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true" className="aDSQFSuh size-4"><path d="M184,64H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H184a8,8,0,0,0,8-8V72A8,8,0,0,0,184,64Zm-8,144H48V80H176ZM224,40V184a8,8,0,0,1-16,0V48H72a8,8,0,0,1,0-16H216A8,8,0,0,1,224,40Z"></path></svg></button></div></div><p className="ngPikd8S">You can also email <a className="iEeRP1nk" href="mailto:hello@tamiulalam.com">hello@tamiulalam.com</a>.</p></div><div className="BLYaX6Wk"><div className="TR2OXMRZ group/letter"><span aria-hidden="true" className="eyBmmZor" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span><span aria-hidden="true" className="JSIecYu9"></span><div className="EUZ7Lhtz"><svg aria-hidden="true" className="mE5XVCvY group-hover/note:motion-safe:animate-clip-jiggle" fill="none" style={{"left":"8%","rotate":"-3deg"} as React.CSSProperties} viewBox="0 0 13 32"><path d="M5 23V8a3.5 3.5 0 0 1 7 0v17.5a5.5 5.5 0 0 1-11 0V6" stroke="#a1a1aa" strokeLinecap="round" strokeWidth="2"></path><path d="M5 23V8a3.5 3.5 0 0 1 7 0v17.5a5.5 5.5 0 0 1-11 0V6" stroke="rgb(255 255 255 / 0.55)" strokeDasharray="8 8" strokeLinecap="round" strokeWidth="0.6" transform="translate(-0.4 -0.4)"></path></svg><div aria-hidden="true" className="N0lMGkqT"><svg aria-hidden="true" className="H3VVTVsu" style={{"filter":"drop-shadow(0 0.5px 1px rgb(0 0 0 / 0.16))"} as React.CSSProperties} viewBox="0 0 50 62"><defs><mask id="stamp-_R_5d5fivb6lb_"><rect fill="white" height="62" width="50"></rect><g><circle cx="2" cy="0" fill="black" r="1.7"></circle><circle cx="2" cy="62" fill="black" r="1.7"></circle></g><g><circle cx="7.75" cy="0" fill="black" r="1.7"></circle><circle cx="7.75" cy="62" fill="black" r="1.7"></circle></g><g><circle cx="13.5" cy="0" fill="black" r="1.7"></circle><circle cx="13.5" cy="62" fill="black" r="1.7"></circle></g><g><circle cx="19.25" cy="0" fill="black" r="1.7"></circle><circle cx="19.25" cy="62" fill="black" r="1.7"></circle></g><g><circle cx="25" cy="0" fill="black" r="1.7"></circle><circle cx="25" cy="62" fill="black" r="1.7"></circle></g><g><circle cx="30.75" cy="0" fill="black" r="1.7"></circle><circle cx="30.75" cy="62" fill="black" r="1.7"></circle></g><g><circle cx="36.5" cy="0" fill="black" r="1.7"></circle><circle cx="36.5" cy="62" fill="black" r="1.7"></circle></g><g><circle cx="42.25" cy="0" fill="black" r="1.7"></circle><circle cx="42.25" cy="62" fill="black" r="1.7"></circle></g><g><circle cx="48" cy="0" fill="black" r="1.7"></circle><circle cx="48" cy="62" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="2" fill="black" r="1.7"></circle><circle cx="50" cy="2" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="7.8" fill="black" r="1.7"></circle><circle cx="50" cy="7.8" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="13.6" fill="black" r="1.7"></circle><circle cx="50" cy="13.6" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="19.4" fill="black" r="1.7"></circle><circle cx="50" cy="19.4" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="25.2" fill="black" r="1.7"></circle><circle cx="50" cy="25.2" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="31" fill="black" r="1.7"></circle><circle cx="50" cy="31" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="36.8" fill="black" r="1.7"></circle><circle cx="50" cy="36.8" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="42.6" fill="black" r="1.7"></circle><circle cx="50" cy="42.6" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="48.4" fill="black" r="1.7"></circle><circle cx="50" cy="48.4" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="54.199999999999996" fill="black" r="1.7"></circle><circle cx="50" cy="54.199999999999996" fill="black" r="1.7"></circle></g><g><circle cx="0" cy="60" fill="black" r="1.7"></circle><circle cx="50" cy="60" fill="black" r="1.7"></circle></g></mask><linearGradient id="stamp-_R_5d5fivb6lb_-sheen" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="white" stopOpacity="0.14"></stop><stop offset="1" stopColor="black" stopOpacity="0.1"></stop></linearGradient></defs><rect className="fill-white dark:fill-[#d9d5cd]" height="62" mask="url(#stamp-_R_5d5fivb6lb_)" width="50"></rect><rect fill="currentColor" height="54" rx="1.5" width="42" x="4" y="4"></rect><rect fill="url(#stamp-_R_5d5fivb6lb_-sheen)" height="54" rx="1.5" width="42" x="4" y="4"></rect><g fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.1" transform="translate(14.9 13.2) scale(0.84)"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></g><text fill="white" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="4.6" font-weight="700" letter-spacing="0.5" text-anchor="middle" x="25" y="51">AIR MAIL</text></svg><svg aria-hidden="true" className="mbq5gUw9" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.1" viewBox="0 0 100 56"><path d="M5 21q4.33 -3 8.67 0t8.67 0t8.67 0t8.67 0t8.67 0t8.67 0" transform="rotate(-7 57 21)"></path><path d="M5 26q4.33 -3 8.67 0t8.67 0t8.67 0t8.67 0t8.67 0t8.67 0" transform="rotate(-9 57 26)"></path><path d="M5 31q4.33 -3 8.67 0t8.67 0t8.67 0t8.67 0t8.67 0t8.67 0" transform="rotate(-11 57 31)"></path><path d="M5 36q4.33 -3 8.67 0t8.67 0t8.67 0t8.67 0t8.67 0t8.67 0" transform="rotate(-13 57 36)"></path><circle cx="76" cy="24" r="20"></circle><circle cx="76" cy="24" r="16"></circle><text fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="5.6" font-weight="600" letter-spacing="0.3" stroke="none" text-anchor="middle" transform="rotate(-15 76 24)"><tspan x="76" y="23.2">NOV 17</tspan><tspan x="76" y="30">2026</tspan></text></svg></div><svg aria-hidden="true" className="jIiawPFT" fill="none" viewBox="0 0 168 28"><ellipse cx="86" cy="24" fill="rgb(0 0 0 / 0.18)" rx="78" ry="3"></ellipse><rect fill="#f2a1b4" height="14" rx="3" width="14" x="4" y="6"></rect><rect fill="#c9cbd1" height="16" width="12" x="16" y="5"></rect><path d="M19 5v16M23 5v16" stroke="rgb(0 0 0 / 0.18)"></path><rect fill="#f6c343" height="5.3" width="104" x="28" y="5"></rect><rect fill="#eab32c" height="5.4" width="104" x="28" y="10.3"></rect><rect fill="#d39a1a" height="5.3" width="104" x="28" y="15.7"></rect><path d="M132 5L158 13L132 21Z" fill="#efd3a8"></path><path d="M150 10.5L158 13L150 15.5Z" fill="#3b3b40"></path></svg><p className="j9TL0dhI">November 17, 2026</p><p className="ItR_9W_className relative mt-3 mb-5 text-[#1c1917] text-[34px] leading-none sm:mb-6 sm:text-5xl dark:text-[#ece8e1]">Hey Tamiul,</p><div className="fj2IIwsd yBdKb4G8"><form className="DTYkcaGP" noValidate><div className="ucG2D9Li"><div className="KamQB6n1"><div className="DTYkcaGP"><div className="xpdmxXOs"><div className="fyb8zlCl EcmAT7fZ" data-slot="form-item"><div className="uVrUkvT9"><label className="flex select-none items-center gap-2 font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 data-[error=true]:text-destructive vbGonHE2" data-slot="form-label" data-error="false" htmlFor="_R_2inctd5fivb6lb_-form-item">Your name</label></div><input className="DouWznNK" autoComplete="name" maxLength={100} placeholder="Jane Doe" aria-invalid="false" data-slot="form-control" id="_R_2inctd5fivb6lb_-form-item" name="name" value="" /></div><div className="fyb8zlCl EcmAT7fZ" data-slot="form-item"><div className="uVrUkvT9"><label className="flex select-none items-center gap-2 font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 data-[error=true]:text-destructive vbGonHE2" data-slot="form-label" data-error="false" htmlFor="_R_4inctd5fivb6lb_-form-item">Email</label></div><input className="DouWznNK" autoComplete="email" data-ph-mask="true" inputMode="email" maxLength={500} placeholder="jane@example.com" type="email" aria-invalid="false" data-slot="form-control" id="_R_4inctd5fivb6lb_-form-item" name="email" value="" /></div></div><div className="fyb8zlCl EcmAT7fZ" data-slot="form-item"><div className="uVrUkvT9"><label className="flex select-none items-center gap-2 font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 data-[error=true]:text-destructive vbGonHE2" data-slot="form-label" data-error="false" htmlFor="_R_qnctd5fivb6lb_-form-item">What's it about?</label></div><div aria-label="What's it about?" className="TZsjXyXa" role="radiogroup"><button aria-checked="false" className="evTnOuPX" role="radio" type="button">Full-time role</button><button aria-checked="false" className="evTnOuPX" role="radio" type="button">Freelance project</button><button aria-checked="false" className="evTnOuPX" role="radio" type="button">Just saying hi</button><button aria-checked="false" className="evTnOuPX" role="radio" type="button">Bug report</button><button aria-checked="false" className="evTnOuPX" role="radio" type="button">Other</button></div></div></div><div className="fyb8zlCl EcmAT7fZ" data-slot="form-item"><div className="uVrUkvT9"><label className="flex select-none items-center gap-2 font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 data-[error=true]:text-destructive vbGonHE2" data-slot="form-label" data-error="false" htmlFor="_R_4nctd5fivb6lb_-form-item">Message</label></div><div className="yBdKb4G8"><textarea className="SWlbEllq" data-ph-mask="true" maxLength={500} placeholder="Tell me what you're working on, or just say hi…" rows={5} name="message" aria-invalid="false" data-slot="form-control" id="_R_4nctd5fivb6lb_-form-item"></textarea><span className="FbFVysTg">0 / 500</span></div></div><button aria-checked="false" className="U8KeKUC3 group/switch" role="switch" type="button"><span aria-hidden="true" className="C0R25nyZ"><span className="SpLj1UNu size-5"></span></span><span className="vvfnK7iR"><span className="yBF6YLfv">Book a 30-min call too</span><span className="gxbocm18">Google Meet. It's a request until I accept it.</span></span></button></div></div><div className="CsBjHPh1"><p className="Pp7JD7V6">Only used to reply to you. <Link className="fKAnLtoZ" href="/legal/privacy">Privacy</Link></p><button className="XgAdZOG1 group/send" type="submit">Send<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" className="N6kdBjQu size-4"><path d="M230.14,25.86a20,20,0,0,0-19.57-5.11l-.22.07L18.44,79a20,20,0,0,0-3.06,37.25L99,157l40.71,83.65a19.81,19.81,0,0,0,18,11.38c.57,0,1.15,0,1.73-.07A19.82,19.82,0,0,0,177,237.56L235.18,45.65a1.42,1.42,0,0,0,.07-.22A20,20,0,0,0,230.14,25.86ZM156.91,221.07l-34.37-70.64,46-45.95a12,12,0,0,0-17-17l-46,46L34.93,99.09,210,46Z"></path></svg></button></div></form></div></div></div></div></div></div></div></section><div aria-hidden="true" className="oDlRct6k" vt-update="none"><div className="pqpIBwim container"><div className="puBGkXbv i8FqydUI HpfpfkkS"><span aria-hidden="true" className="OtybCf2U size-[5px] m7aWZARZ" data-node="top"></span><span aria-hidden="true" className="OtybCf2U size-[5px] SdCAH6sp" data-node="top"></span><span aria-hidden="true" className="OtybCf2U size-[5px] vgoN9Yn8" data-node="bottom"></span><span aria-hidden="true" className="OtybCf2U size-[5px] OpiMbwgW" data-node="bottom"></span></div></div></div><section className="Z341Qab9 vzqQr26y" vt-update="none"><div className="pqpIBwim container"><div className="AUnucuLw g4ZzFJT4"><div className="YfewLcDx cYrXGNhF"><div className="uotRHvjg zndtoWoO mb-0! max-w-2xl max-sm:px-0" style={{"textShadow":"0px 4px 8px rgba(255,255,255,.05),0px 8px 30px rgba(255,255,255,.20)"} as React.CSSProperties}><p className="RWtM8UhL">My Site</p><h2 className="Vfg8r5DS">Explore, experiment<br /><span className="qFT8yXw5 animate-gradient-x text-colorfull" style={{"WebkitMaskImage":"linear-gradient(to right, black 70%, transparent 100%)","WebkitMaskSize":"0% 100%","WebkitMaskPosition":"left","WebkitMaskRepeat":"no-repeat"} as React.CSSProperties} data-offscreen="true">&amp;&amp; say hello</span></h2></div></div><div className="lMzuZiwz LCtjYnTd" data-tray=""><div className="ewWjk03W"><Link className="group relative flex w-full flex-col justify-between overflow-hidden rounded-3xl bg-surface transition-all duration-300 hover:bg-white dark:bg-card/15 dark:hover:bg-card/5 ring-1 ring-border in-data-tray:bg-[#F7F7F8] dark:in-data-tray:bg-[#0f0f10] in-data-tray:hover:bg-white dark:in-data-tray:hover:bg-[#131314] cursor-pointer S6LgrV3h press" data-cuelume-navigate="select" data-hover-cue="" href="/uses"><div className="size-full"><div className="RD1cQ1kx"><div className="JYqK08aS"><div className="IXiNuQCU" style={{"gap":"4px","height":"62px","paddingInline":"8px","paddingBottom":"8px"} as React.CSSProperties}><div className="xpOMMgya" data-app="0"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/uses/zen_logo.png" /></div><span className="vXeeUZqs xYAkETlp">Zen<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div><div className="xpOMMgya" data-app="1"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"1"} as React.CSSProperties} src="/uses/ghostty_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Ghostty<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div><div className="xpOMMgya" data-app="2"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/icons/herdr.png" /></div><span className="vXeeUZqs kl9fIFRc">herdr<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div><div className="xpOMMgya" data-app="3"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.83"} as React.CSSProperties} src="/uses/claude_code_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Claude Code<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div><div className="xpOMMgya" data-app="4"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/uses/zed_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Zed<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div><div className="xpOMMgya" data-app="5"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"1"} as React.CSSProperties} src="/uses/linear_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Linear<span className="sYNf1KiD size-2"></span></span></div><div className="xpOMMgya" data-app="6"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/uses/obsidian_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Obsidian<span className="sYNf1KiD size-2"></span></span></div><span aria-hidden="true" className="l8YWQ9fn"></span><div className="xpOMMgya" data-app="7"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/uses/vorssaint_logo.png" /></div><span className="vXeeUZqs xYAkETlp">Vorssaint<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div><div className="xpOMMgya" data-app="8"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.88"} as React.CSSProperties} src="/uses/1password_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">1Password<span className="sYNf1KiD size-2"></span></span></div><div className="xpOMMgya" data-app="9"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.94"} as React.CSSProperties} src="/uses/cleanshotx_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Cleanshot X<span className="sYNf1KiD size-2"></span></span></div><div className="xpOMMgya" data-app="10"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"1"} as React.CSSProperties} src="/uses/screen_studio_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Screen Studio<span className="sYNf1KiD size-2"></span></span></div><div className="xpOMMgya" data-app="11"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/uses/spotify_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Spotify<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div></div></div><p className="ZtQuGT5E">MacBook M5 Pro · 24GB · 1TB</p></div></div><div className="pointer-events-none z-10 flex flex-col gap-1 p-5 absolute inset-x-0 top-0 text-left"><p className="SS7b4Jbv">Workstation</p><p className="font-medium font-sans text-neutral-700 text-xl leading-snug tracking-tight dark:text-neutral-300">Everything on my desk and dock</p></div><div className="d2cXUZSH"></div><div className="mZj45wrX size-9"><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" className="GWHFBD1D size-[18px]"><path d="M18.5 12L4.99997 12" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path></svg></div></Link></div><div className="ewWjk03W"><Link className="group relative flex w-full flex-col justify-between overflow-hidden rounded-3xl bg-surface transition-all duration-300 hover:bg-white dark:bg-card/15 dark:hover:bg-card/5 ring-1 ring-border in-data-tray:bg-[#F7F7F8] dark:in-data-tray:bg-[#0f0f10] in-data-tray:hover:bg-white dark:in-data-tray:hover:bg-[#131314] cursor-pointer S6LgrV3h press" data-cuelume-navigate="select" data-hover-cue="" href="/about"><div className="size-full"><div className="RD1cQ1kx"><div className="T3iY4b68"><div className="w93ScpRo"><span className="U3QL9u2x"></span><span className="f9aQyiCn"></span><span aria-hidden="true" className="sWVGFhon">tamiulalam.com · tamiulalam.com · tamiulalam.com · tamiulalam.com · tamiulalam.com · tamiulalam.com</span></div><span className="ihu2p2Tv"></span><div className="sKUOTI5M"><div className="bJNaBhlI"><svg viewBox="0 0 5350 5350" xmlns="http://www.w3.org/2000/svg" className="zpzXQgij"><path d="M 800 650 L 2380 650 A 70 70 0 0 1 2450 720 L 2450 1140 A 70 70 0 0 1 2380 1210 L 1730 1210 L 1730 4000 A 70 70 0 0 1 1660 4070 L 1240 4070 A 70 70 0 0 1 1170 4000 L 1170 1210 L 520 1210 A 70 70 0 0 1 458 1128 L 738 678 A 70 70 0 0 1 800 650 Z" fill="#fff"></path><path d="M 2820 650 L 3310 650 A 70 70 0 0 1 3373 690 L 3850 1560 L 4327 690 A 70 70 0 0 1 4390 650 L 4880 650 A 70 70 0 0 1 4950 720 L 4950 4000 A 70 70 0 0 1 4880 4070 L 4460 4070 A 70 70 0 0 1 4390 4000 L 4390 2050 L 3915 2915 A 70 70 0 0 1 3785 2915 L 3310 2050 L 3310 4000 A 70 70 0 0 1 3240 4070 L 2820 4070 A 70 70 0 0 1 2750 4000 L 2750 720 A 70 70 0 0 1 2820 650 Z" fill="#fff"></path></svg><span className="MgspzG7o"></span></div><div className="LZWLUzrI" style={{"filter":"drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff)"} as React.CSSProperties}><img alt="Tamiul Alam" loading="lazy" width="640" height="598" decoding="async" data-nimg="1" className="tILfvsBF" style={{"color":"transparent"} as React.CSSProperties} sizes="216px" src="/tamim-cutout.webp" /></div><span aria-hidden="true" className="KZqgskwc"></span></div><span className="J4iTBoyc"><svg aria-hidden="true" className="mLG5qyoy size-full" viewBox="-14 -2 28 48"><defs><linearGradient gradientUnits="userSpaceOnUse" id="_S_2_-steel" x1="-10" x2="10" y1="0" y2="42"><stop offset="0" stopColor="#f5f6f8"></stop><stop offset="0.3" stopColor="#b9bcc4"></stop><stop offset="0.5" stopColor="#eceef1"></stop><stop offset="0.75" stopColor="#868991"></stop><stop offset="1" stopColor="#d9dce2"></stop></linearGradient><clipPath id="_S_2_-above"><rect height="20" width="28" x="-14" y="-2"></rect></clipPath><clipPath id="_S_2_-hole"><rect x="-20" y="33" width="40" height="10" rx="5"></rect></clipPath></defs><path d="M-6 6A6 4 0 0 1 6 6" fill="none" stroke="#4a4c53" strokeLinecap="round" strokeWidth="2.8000000000000003"></path><path d="M-6 6A6 4 0 0 1 6 6" fill="none" stroke="url(#_S_2_-steel)" strokeLinecap="round" strokeWidth="2.2"></path><path d="M-6 6A6 4 0 0 1 6 6" fill="none" stroke="rgb(255 255 255 / 0.75)" strokeLinecap="round" strokeWidth="0.48400000000000004"></path><g clipPath="url(#_S_2_-above)"><path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="#4a4c53" strokeLinecap="round" strokeWidth="3.2"></path><path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="url(#_S_2_-steel)" strokeLinecap="round" strokeWidth="2.6"></path><path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="rgb(255 255 255 / 0.75)" strokeLinecap="round" strokeWidth="0.5720000000000001"></path></g><g clipPath="url(#_S_2_-hole)" opacity="0.7"><path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="#4a4c53" strokeLinecap="round" strokeWidth="3.2"></path><path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="url(#_S_2_-steel)" strokeLinecap="round" strokeWidth="2.6"></path><path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="rgb(255 255 255 / 0.75)" strokeLinecap="round" strokeWidth="0.5720000000000001"></path></g><path d="M3.59 7.15A8 15 -8 0 0 -0.5899999999999999 36.85" fill="none" stroke="#4a4c53" strokeLinecap="round" strokeWidth="3.2"></path><path d="M3.59 7.15A8 15 -8 0 0 -0.5899999999999999 36.85" fill="none" stroke="url(#_S_2_-steel)" strokeLinecap="round" strokeWidth="2.6"></path><path d="M3.59 7.15A8 15 -8 0 0 -0.5899999999999999 36.85" fill="none" stroke="rgb(255 255 255 / 0.75)" strokeLinecap="round" strokeWidth="0.5720000000000001"></path><path d="M6 6A6 4 0 0 1 -6 6" fill="none" stroke="#4a4c53" strokeLinecap="round" strokeWidth="2.8000000000000003"></path><path d="M6 6A6 4 0 0 1 -6 6" fill="none" stroke="url(#_S_2_-steel)" strokeLinecap="round" strokeWidth="2.2"></path><path d="M6 6A6 4 0 0 1 -6 6" fill="none" stroke="rgb(255 255 255 / 0.75)" strokeLinecap="round" strokeWidth="0.48400000000000004"></path></svg></span></div></div></div><div className="pointer-events-none z-10 flex flex-col gap-1 p-5 absolute inset-x-0 top-0 text-left"><p className="SS7b4Jbv">Behind The Code</p><p className="font-medium font-sans text-neutral-700 text-xl leading-snug tracking-tight dark:text-neutral-300">Journey, skills &amp; experience</p></div><div className="d2cXUZSH"></div><div className="mZj45wrX size-9"><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" className="GWHFBD1D size-[18px]"><path d="M18.5 12L4.99997 12" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path></svg></div></Link></div><div className="ewWjk03W"><Link className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-surface transition-all duration-300 hover:bg-white dark:bg-card/15 dark:hover:bg-card/5 ring-1 ring-border in-data-tray:bg-[#F7F7F8] dark:in-data-tray:bg-[#0f0f10] in-data-tray:hover:bg-white dark:in-data-tray:hover:bg-[#131314] cursor-pointer size-full S6LgrV3h press" data-cuelume-navigate="select" data-hover-cue="" href="/guestbook"><div className="size-full"><figure aria-label="Notes from the guestbook" className="NrvN0rSh"><div aria-hidden="true" className="z9d3ma3A"></div><blockquote className="Cvtwys2p" style={{"left":"3%","top":"38%","--r":"-5deg","--dx":"-4px","--dy":"-8px","transitionDelay":"0ms"} as React.CSSProperties}><div aria-hidden="true" className="UhBJZT5Y"><div className="wMp7CRsK"><span className="I1uZnctc" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span><span className="wJuWcYHg"></span></div></div><div className="jRpojyvs"><p className="KWag9Rms">AMAZING!!! beautifully designed. very unique. thoughtfully put together.</p><footer className="ItR_9W_className K2svS3Qu aH2411SH">— Charvi Vatsh</footer></div><span className="kOXq7NpZ"><svg aria-hidden="true" className="WQfR1czF" viewBox="0 0 16 48"><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"5deg"} as React.CSSProperties}><rect fill="#d2ad7c" height="46" rx="2" width="7" x="1" y="1"></rect><path d="M3 6v36M5.5 10v28" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"-5deg"} as React.CSSProperties}><rect fill="#c39c69" height="46" rx="2" width="7" x="8" y="1"></rect><path d="M11 5v38M13 12v24" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><rect fill="#9ca3af" height="4" rx="1" width="16" y="17"></rect><rect fill="#e5e7eb" height="1" width="16" y="17.5"></rect></svg></span></blockquote><blockquote className="Cvtwys2p" style={{"left":"34%","top":"44%","--r":"3deg","--dx":"0px","--dy":"-10px","transitionDelay":"40ms"} as React.CSSProperties}><div aria-hidden="true" className="UhBJZT5Y"><div className="nNmyqpz8"><span className="CmSHJlYp" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span><span className="I66HOEnU"></span></div></div><div className="jRpojyvs"><p className="smGvI5Ir">The best software engineer portfolio I've ever seen.</p><footer className="ItR_9W_className K2svS3Qu UrM7zHVc">— Arthur Ferreira Costa</footer></div><span className="kOXq7NpZ"><svg aria-hidden="true" className="WQfR1czF" viewBox="0 0 16 48"><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"5deg"} as React.CSSProperties}><rect fill="#d2ad7c" height="46" rx="2" width="7" x="1" y="1"></rect><path d="M3 6v36M5.5 10v28" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"-5deg"} as React.CSSProperties}><rect fill="#c39c69" height="46" rx="2" width="7" x="8" y="1"></rect><path d="M11 5v38M13 12v24" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><rect fill="#9ca3af" height="4" rx="1" width="16" y="17"></rect><rect fill="#e5e7eb" height="1" width="16" y="17.5"></rect></svg></span></blockquote><blockquote className="Cvtwys2p" style={{"left":"64%","top":"36%","--r":"-3deg","--dx":"4px","--dy":"-8px","transitionDelay":"80ms"} as React.CSSProperties}><div aria-hidden="true" className="UhBJZT5Y"><div className="ZRByEz6x"><div className="KwXbixTI size-full"><span className="CmSHJlYp" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span></div></div></div><div className="jRpojyvs"><p className="smGvI5Ir">Loved your website. perfect blending example of interface and experience!</p><footer className="ItR_9W_className K2svS3Qu UrM7zHVc">— Dhruv Panchal</footer></div><span className="kOXq7NpZ"><svg aria-hidden="true" className="WQfR1czF" viewBox="0 0 16 48"><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"5deg"} as React.CSSProperties}><rect fill="#d2ad7c" height="46" rx="2" width="7" x="1" y="1"></rect><path d="M3 6v36M5.5 10v28" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"-5deg"} as React.CSSProperties}><rect fill="#c39c69" height="46" rx="2" width="7" x="8" y="1"></rect><path d="M11 5v38M13 12v24" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><rect fill="#9ca3af" height="4" rx="1" width="16" y="17"></rect><rect fill="#e5e7eb" height="1" width="16" y="17.5"></rect></svg></span></blockquote><blockquote className="Cvtwys2p" style={{"left":"15%","top":"80%","--r":"4deg","--dx":"-10px","--dy":"2px","transitionDelay":"120ms"} as React.CSSProperties}><div aria-hidden="true" className="UhBJZT5Y"><div className="CroGjWuf"><span className="CmSHJlYp" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span><span className="NNgioKFt"></span><span className="QB4X7Wib"></span></div></div><div className="kZyFMmTz"><p className="smGvI5Ir">Yo Tamiul. Your website is looking better by the day. Really impressive work 🎉</p><footer className="ItR_9W_className K2svS3Qu UrM7zHVc">— Jono</footer></div><span className="kOXq7NpZ"><svg aria-hidden="true" className="WQfR1czF" viewBox="0 0 16 48"><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"5deg"} as React.CSSProperties}><rect fill="#d2ad7c" height="46" rx="2" width="7" x="1" y="1"></rect><path d="M3 6v36M5.5 10v28" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"-5deg"} as React.CSSProperties}><rect fill="#c39c69" height="46" rx="2" width="7" x="8" y="1"></rect><path d="M11 5v38M13 12v24" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><rect fill="#9ca3af" height="4" rx="1" width="16" y="17"></rect><rect fill="#e5e7eb" height="1" width="16" y="17.5"></rect></svg></span></blockquote><div aria-hidden="true" className="EHLjTuLw"><div className="PTYUsCGt"><span className="CmSHJlYp" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span></div><span className="oku6rFHR">POST CARD</span><span className="RwDsmMdT"></span><div className="nJW6SGYS"><span className="ItR_9W_className NhE2Ogcd">Your note here →</span></div></div></figure></div><div className="pointer-events-none z-10 flex flex-col gap-1 p-5 absolute inset-x-0 top-0 text-left"><p className="SS7b4Jbv">Guestbook</p><p className="font-medium font-sans text-neutral-700 text-xl leading-snug tracking-tight dark:text-neutral-300">Sign the wall, leave a note</p></div><div className="d2cXUZSH"></div><div className="mZj45wrX size-9"><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" className="GWHFBD1D size-[18px]"><path d="M18.5 12L4.99997 12" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path></svg></div></Link></div></div><span aria-hidden="true" className="OtybCf2U size-[5px] m7aWZARZ" data-node="top"></span><span aria-hidden="true" className="OtybCf2U size-[5px] SdCAH6sp" data-node="top"></span><span aria-hidden="true" className="OtybCf2U size-[5px] vgoN9Yn8" data-node="bottom"></span><span aria-hidden="true" className="OtybCf2U size-[5px] OpiMbwgW" data-node="bottom"></span></div></div></section>
+        <script id="contact-page-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"ContactPage\",\"@id\":\"https://tamiulalam.com/contact\",\"url\":\"https://tamiulalam.com/contact\",\"name\":\"Hire Tamiul Alam for freelance work\",\"isPartOf\":{\"@id\":\"https://tamiulalam.com#website\"},\"about\":{\"@id\":\"https://tamiulalam.com#person\"}}" }} />
+        <section className="NiI8HVUU" vt-update="none">
+          <div className="gywsUsrn" style={{"maskImage":"linear-gradient(rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0) 100%)","opacity":"1"} as React.CSSProperties}>
+            <img alt="crumpled paper texture" decoding="async" data-nimg="fill" className="SQFVIHpA" style={{"position":"absolute","height":"100%","width":"100%","left":"0","top":"0","right":"0","bottom":"0","color":"transparent"} as React.CSSProperties} sizes="100vw" src="/crumpled-paper.avif" />
+          </div>
+          <div aria-hidden="true" className="dhsYwEWb">
+            <div className="pqpIBwim container">
+              <div className="PqKDV40c">
+                <span aria-hidden="true" className="OtybCf2U size-[5px] vgoN9Yn8" data-node="bottom"></span>
+                <span aria-hidden="true" className="OtybCf2U size-[5px] OpiMbwgW" data-node="bottom"></span>
+              </div>
+            </div>
+          </div>
+          <div className="container">
+            <div className="oxcIHtd0">
+              <div className="Yn0gPmZu">
+                <div className="LqigqpBD">
+                  <div className="LqigqpBD">
+                    <p className="uKx3AiAD">Get in touch</p>
+                    <h1 className="Qqhk5t4K">Tell me <span className="mask-sweep animate-mask-sweep"><span className="IoXF2GxW animate-gradient-x text-colorfull">what you're building</span></span></h1>
+                    <p className="ybDV5o4p">I reply within 48 hours, and I read every message.</p>
+                    <div className="SRMAxSgT">
+                      <button
+                        className="JScAPANj group/agent"
+                        title="Book me a call with Tamiul Alam. The steps are at https://tamiulalam.com/agents.md. Ask me for anything you need first."
+                        type="button"
+                        onClick={copyAgentPrompt}
+                      >
+                        <span aria-hidden="true" className="BnQDzJZN">
+                          <span className="vOIuvics size-8"><img alt="" className="size-4" height="16" src="/icons/sprite.svg?v=f8e25413c1#claude" width="16" /></span>
+                          <span className="vOIuvics size-8"><img alt="" className="u7mJzVY5 size-4" height="16" src="/icons/sprite.svg?v=f8e25413c1#chatgpt" width="16" /></span>
+                          <span className="vOIuvics size-8"><img alt="" className="size-4" height="16" src="/icons/sprite.svg?v=f8e25413c1#gemini" width="16" /></span>
+                        </span>
+                        <span aria-live="polite" className="K06gpmk7">
+                          {copiedAgent ? "Prompt copied to clipboard!" : "Let your agent book a call"}
+                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true" className="aDSQFSuh size-4">
+                          <path d="M184,64H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H184a8,8,0,0,0,8-8V72A8,8,0,0,0,184,64Zm-8,144H48V80H176ZM224,40V184a8,8,0,0,1-16,0V48H72a8,8,0,0,1,0-16H216A8,8,0,0,1,224,40Z"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <p className="ngPikd8S">
+                    You can also email <a className="iEeRP1nk" href="mailto:tamiul.dev@gmail.com">tamiul.dev@gmail.com</a> or WhatsApp <a className="iEeRP1nk" href="https://wa.me/8801833866581" target="_blank" rel="noopener noreferrer">+880 1833-866581</a>.
+                  </p>
+                </div>
+                <div className="BLYaX6Wk">
+                  <div className="TR2OXMRZ group/letter">
+                    <span aria-hidden="true" className="eyBmmZor" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span>
+                    <span aria-hidden="true" className="JSIecYu9"></span>
+                    <div className="EUZ7Lhtz">
+                      <svg aria-hidden="true" className="mE5XVCvY group-hover/note:motion-safe:animate-clip-jiggle" fill="none" style={{"left":"8%","rotate":"-3deg"} as React.CSSProperties} viewBox="0 0 13 32">
+                        <path d="M5 23V8a3.5 3.5 0 0 1 7 0v17.5a5.5 5.5 0 0 1-11 0V6" stroke="#a1a1aa" strokeLinecap="round" strokeWidth="2"></path>
+                        <path d="M5 23V8a3.5 3.5 0 0 1 7 0v17.5a5.5 5.5 0 0 1-11 0V6" stroke="rgb(255 255 255 / 0.55)" strokeDasharray="8 8" strokeLinecap="round" strokeWidth="0.6" transform="translate(-0.4 -0.4)"></path>
+                      </svg>
+                      <div aria-hidden="true" className="N0lMGkqT">
+                        <svg aria-hidden="true" className="H3VVTVsu" style={{"filter":"drop-shadow(0 0.5px 1px rgb(0 0 0 / 0.16))"} as React.CSSProperties} viewBox="0 0 50 62">
+                          <defs>
+                            <mask id="stamp-_R_5d5fivb6lb_">
+                              <rect fill="white" height="62" width="50"></rect>
+                              <g><circle cx="2" cy="0" fill="black" r="1.7"></circle><circle cx="2" cy="62" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="7.75" cy="0" fill="black" r="1.7"></circle><circle cx="7.75" cy="62" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="13.5" cy="0" fill="black" r="1.7"></circle><circle cx="13.5" cy="62" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="19.25" cy="0" fill="black" r="1.7"></circle><circle cx="19.25" cy="62" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="25" cy="0" fill="black" r="1.7"></circle><circle cx="25" cy="62" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="30.75" cy="0" fill="black" r="1.7"></circle><circle cx="30.75" cy="62" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="36.5" cy="0" fill="black" r="1.7"></circle><circle cx="36.5" cy="62" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="42.25" cy="0" fill="black" r="1.7"></circle><circle cx="42.25" cy="62" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="48" cy="0" fill="black" r="1.7"></circle><circle cx="48" cy="62" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="2" fill="black" r="1.7"></circle><circle cx="50" cy="2" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="7.8" fill="black" r="1.7"></circle><circle cx="50" cy="7.8" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="13.6" fill="black" r="1.7"></circle><circle cx="50" cy="13.6" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="19.4" fill="black" r="1.7"></circle><circle cx="50" cy="19.4" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="25.2" fill="black" r="1.7"></circle><circle cx="50" cy="25.2" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="31" fill="black" r="1.7"></circle><circle cx="50" cy="31" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="36.8" fill="black" r="1.7"></circle><circle cx="50" cy="36.8" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="42.6" fill="black" r="1.7"></circle><circle cx="50" cy="42.6" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="48.4" fill="black" r="1.7"></circle><circle cx="50" cy="48.4" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="54.199999999999996" fill="black" r="1.7"></circle><circle cx="50" cy="54.199999999999996" fill="black" r="1.7"></circle></g>
+                              <g><circle cx="0" cy="60" fill="black" r="1.7"></circle><circle cx="50" cy="60" fill="black" r="1.7"></circle></g>
+                            </mask>
+                            <linearGradient id="stamp-_R_5d5fivb6lb_-sheen" x1="0" x2="0" y1="0" y2="1">
+                              <stop offset="0" stopColor="white" stopOpacity="0.14"></stop>
+                              <stop offset="1" stopColor="black" stopOpacity="0.1"></stop>
+                            </linearGradient>
+                          </defs>
+                          <rect className="fill-white dark:fill-[#d9d5cd]" height="62" mask="url(#stamp-_R_5d5fivb6lb_)" width="50"></rect>
+                          <rect fill="currentColor" height="54" rx="1.5" width="42" x="4" y="4"></rect>
+                          <rect fill="url(#stamp-_R_5d5fivb6lb_-sheen)" height="54" rx="1.5" width="42" x="4" y="4"></rect>
+                          <g fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.1" transform="translate(14.9 13.2) scale(0.84)">
+                            <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
+                            <path d="m21.854 2.147-10.94 10.939"></path>
+                          </g>
+                          <text fill="white" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="4.6" font-weight="700" letter-spacing="0.5" text-anchor="middle" x="25" y="51">AIR MAIL</text>
+                        </svg>
+                        <svg aria-hidden="true" className="mbq5gUw9" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.1" viewBox="0 0 100 56">
+                          <path d="M5 21q4.33 -3 8.67 0t8.67 0t8.67 0t8.67 0t8.67 0t8.67 0" transform="rotate(-7 57 21)"></path>
+                          <path d="M5 26q4.33 -3 8.67 0t8.67 0t8.67 0t8.67 0t8.67 0t8.67 0" transform="rotate(-9 57 26)"></path>
+                          <path d="M5 31q4.33 -3 8.67 0t8.67 0t8.67 0t8.67 0t8.67 0t8.67 0" transform="rotate(-11 57 31)"></path>
+                          <path d="M5 36q4.33 -3 8.67 0t8.67 0t8.67 0t8.67 0t8.67 0t8.67 0" transform="rotate(-13 57 36)"></path>
+                          <circle cx="76" cy="24" r="20"></circle>
+                          <circle cx="76" cy="24" r="16"></circle>
+                          <text fill="currentColor" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="5.6" font-weight="600" letter-spacing="0.3" stroke="none" text-anchor="middle" transform="rotate(-15 76 24)">
+                            <tspan x="76" y="23.2">NOV 17</tspan>
+                            <tspan x="76" y="30">2026</tspan>
+                          </text>
+                        </svg>
+                      </div>
+                      <svg aria-hidden="true" className="jIiawPFT" fill="none" viewBox="0 0 168 28">
+                        <ellipse cx="86" cy="24" fill="rgb(0 0 0 / 0.18)" rx="78" ry="3"></ellipse>
+                        <rect fill="#f2a1b4" height="14" rx="3" width="14" x="4" y="6"></rect>
+                        <rect fill="#c9cbd1" height="16" width="12" x="16" y="5"></rect>
+                        <path d="M19 5v16M23 5v16" stroke="rgb(0 0 0 / 0.18)"></path>
+                        <rect fill="#f6c343" height="5.3" width="104" x="28" y="5"></rect>
+                        <rect fill="#eab32c" height="5.4" width="104" x="28" y="10.3"></rect>
+                        <rect fill="#d39a1a" height="5.3" width="104" x="28" y="15.7"></rect>
+                        <path d="M132 5L158 13L132 21Z" fill="#efd3a8"></path>
+                        <path d="M150 10.5L158 13L150 15.5Z" fill="#3b3b40"></path>
+                      </svg>
+                      <p className="j9TL0dhI">November 17, 2026</p>
+                      <p className="ItR_9W_className relative mt-3 mb-5 text-[#1c1917] text-[34px] leading-none sm:mb-6 sm:text-5xl dark:text-[#ece8e1]">Hey Tamiul,</p>
+                      <div className="fj2IIwsd yBdKb4G8">
+                        <form className="DTYkcaGP" onSubmit={handleSubmit} noValidate>
+                          <div className="ucG2D9Li">
+                            <div className="KamQB6n1">
+                              <div className="DTYkcaGP">
+                                <div className="xpdmxXOs">
+                                  <div className="fyb8zlCl EcmAT7fZ" data-slot="form-item">
+                                    <div className="uVrUkvT9">
+                                      <label className="flex select-none items-center gap-2 font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 data-[error=true]:text-destructive vbGonHE2" data-slot="form-label" data-error="false" htmlFor="contact-name">Your name</label>
+                                    </div>
+                                    <input
+                                      className="DouWznNK"
+                                      autoComplete="name"
+                                      maxLength={100}
+                                      placeholder="Jane Doe"
+                                      aria-invalid="false"
+                                      data-slot="form-control"
+                                      id="contact-name"
+                                      name="name"
+                                      value={name}
+                                      onChange={(e) => setName(e.target.value)}
+                                    />
+                                  </div>
+                                  <div className="fyb8zlCl EcmAT7fZ" data-slot="form-item">
+                                    <div className="uVrUkvT9">
+                                      <label className="flex select-none items-center gap-2 font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 data-[error=true]:text-destructive vbGonHE2" data-slot="form-label" data-error="false" htmlFor="contact-email">Email</label>
+                                    </div>
+                                    <input
+                                      className="DouWznNK"
+                                      autoComplete="email"
+                                      data-ph-mask="true"
+                                      inputMode="email"
+                                      maxLength={500}
+                                      placeholder="jane@example.com"
+                                      type="email"
+                                      aria-invalid="false"
+                                      data-slot="form-control"
+                                      id="contact-email"
+                                      name="email"
+                                      value={email}
+                                      onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                  </div>
+                                </div>
+                                <div className="fyb8zlCl EcmAT7fZ" data-slot="form-item">
+                                  <div className="uVrUkvT9">
+                                    <label className="flex select-none items-center gap-2 font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 data-[error=true]:text-destructive vbGonHE2" data-slot="form-label" data-error="false">What's it about?</label>
+                                  </div>
+                                  <div aria-label="What's it about?" className="TZsjXyXa" role="radiogroup">
+                                    {["Full-time role", "Freelance project", "Just saying hi", "Bug report", "Other"].map((t) => (
+                                      <button
+                                        key={t}
+                                        aria-checked={topic === t}
+                                        className={`evTnOuPX ${topic === t ? "!border-foreground !text-foreground" : ""}`}
+                                        role="radio"
+                                        type="button"
+                                        onClick={() => setTopic(t)}
+                                      >
+                                        {t}
+                                      </button>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="fyb8zlCl EcmAT7fZ" data-slot="form-item">
+                                <div className="uVrUkvT9">
+                                  <label className="flex select-none items-center gap-2 font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 data-[error=true]:text-destructive vbGonHE2" data-slot="form-label" data-error="false" htmlFor="contact-message">Message</label>
+                                </div>
+                                <div className="yBdKb4G8">
+                                  <textarea
+                                    className="SWlbEllq"
+                                    data-ph-mask="true"
+                                    maxLength={500}
+                                    placeholder="Tell me what you're working on, or just say hi…"
+                                    rows={5}
+                                    name="message"
+                                    aria-invalid="false"
+                                    data-slot="form-control"
+                                    id="contact-message"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                  />
+                                  <span className="FbFVysTg">{message.length} / 500</span>
+                                </div>
+                              </div>
+                              <a
+                                href="https://calendly.com/tamiul-dev/30min"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="U8KeKUC3 group/switch block text-left"
+                              >
+                                <span className="flex items-center gap-3">
+                                  <span aria-hidden="true" className="C0R25nyZ">
+                                    <span className="SpLj1UNu size-5"></span>
+                                  </span>
+                                  <span className="vvfnK7iR">
+                                    <span className="yBF6YLfv flex items-center gap-1">
+                                      Book a 30-min call too
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" className="size-3 text-muted-foreground inline">
+                                        <path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z" />
+                                      </svg>
+                                    </span>
+                                    <span className="gxbocm18">Calendly / Google Meet (instant schedule)</span>
+                                  </span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                          <div className="CsBjHPh1">
+                            <p className="Pp7JD7V6">Only used to reply to you. <Link className="fKAnLtoZ" href="/legal/privacy">Privacy</Link></p>
+                            <button className="XgAdZOG1 group/send" type="submit">
+                              Send
+                              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" className="N6kdBjQu size-4">
+                                <path d="M230.14,25.86a20,20,0,0,0-19.57-5.11l-.22.07L18.44,79a20,20,0,0,0-3.06,37.25L99,157l40.71,83.65a19.81,19.81,0,0,0,18,11.38c.57,0,1.15,0,1.73-.07A19.82,19.82,0,0,0,177,237.56L235.18,45.65a1.42,1.42,0,0,0,.07-.22A20,20,0,0,0,230.14,25.86ZM156.91,221.07l-34.37-70.64,46-45.95a12,12,0,0,0-17-17l-46,46L34.93,99.09,210,46Z"></path>
+                              </svg>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div aria-hidden="true" className="oDlRct6k" vt-update="none">
+          <div className="pqpIBwim container">
+            <div className="puBGkXbv i8FqydUI HpfpfkkS">
+              <span aria-hidden="true" className="OtybCf2U size-[5px] m7aWZARZ" data-node="top"></span>
+              <span aria-hidden="true" className="OtybCf2U size-[5px] SdCAH6sp" data-node="top"></span>
+              <span aria-hidden="true" className="OtybCf2U size-[5px] vgoN9Yn8" data-node="bottom"></span>
+              <span aria-hidden="true" className="OtybCf2U size-[5px] OpiMbwgW" data-node="bottom"></span>
+            </div>
+          </div>
+        </div>
+
+        <section className="Z341Qab9 vzqQr26y" vt-update="none">
+          <div className="pqpIBwim container">
+            <div className="AUnucuLw g4ZzFJT4">
+              <div className="YfewLcDx cYrXGNhF">
+                <div className="uotRHvjg zndtoWoO mb-0! max-w-2xl max-sm:px-0" style={{"textShadow":"0px 4px 8px rgba(255,255,255,.05),0px 8px 30px rgba(255,255,255,.20)"} as React.CSSProperties}>
+                  <p className="RWtM8UhL">My Site</p>
+                  <h2 className="Vfg8r5DS">Explore, experiment<br /><span className="qFT8yXw5 animate-gradient-x text-colorfull" style={{"WebkitMaskImage":"linear-gradient(to right, black 70%, transparent 100%)","WebkitMaskSize":"0% 100%","WebkitMaskPosition":"left","WebkitMaskRepeat":"no-repeat"} as React.CSSProperties} data-offscreen="true">&amp;&amp; say hello</span></h2>
+                </div>
+              </div>
+              <div className="lMzuZiwz LCtjYnTd" data-tray="">
+                <div className="ewWjk03W">
+                  <Link className="group relative flex w-full flex-col justify-between overflow-hidden rounded-3xl bg-surface transition-all duration-300 hover:bg-white dark:bg-card/15 dark:hover:bg-card/5 ring-1 ring-border in-data-tray:bg-[#F7F7F8] dark:in-data-tray:bg-[#0f0f10] in-data-tray:hover:bg-white dark:in-data-tray:hover:bg-[#131314] cursor-pointer S6LgrV3h press" data-cuelume-navigate="select" data-hover-cue="" href="/uses">
+                    <div className="size-full">
+                      <div className="RD1cQ1kx">
+                        <div className="JYqK08aS">
+                          <div className="IXiNuQCU" style={{"gap":"4px","height":"62px","paddingInline":"8px","paddingBottom":"8px"} as React.CSSProperties}>
+                            <div className="xpOMMgya" data-app="0"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/uses/zen_logo.png" /></div><span className="vXeeUZqs xYAkETlp">Zen<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div>
+                            <div className="xpOMMgya" data-app="1"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"1"} as React.CSSProperties} src="/uses/ghostty_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Ghostty<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div>
+                            <div className="xpOMMgya" data-app="2"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/icons/herdr.png" /></div><span className="vXeeUZqs kl9fIFRc">herdr<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div>
+                            <div className="xpOMMgya" data-app="3"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.83"} as React.CSSProperties} src="/uses/claude_code_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Claude Code<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div>
+                            <div className="xpOMMgya" data-app="4"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/uses/zed_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Zed<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div>
+                            <div className="xpOMMgya" data-app="5"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"1"} as React.CSSProperties} src="/uses/linear_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Linear<span className="sYNf1KiD size-2"></span></span></div>
+                            <div className="xpOMMgya" data-app="6"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/uses/obsidian_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Obsidian<span className="sYNf1KiD size-2"></span></span></div>
+                            <span aria-hidden="true" className="l8YWQ9fn"></span>
+                            <div className="xpOMMgya" data-app="7"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/uses/vorssaint_logo.png" /></div><span className="vXeeUZqs xYAkETlp">Vorssaint<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div>
+                            <div className="xpOMMgya" data-app="8"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.88"} as React.CSSProperties} src="/uses/1password_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">1Password<span className="sYNf1KiD size-2"></span></span></div>
+                            <div className="xpOMMgya" data-app="9"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.94"} as React.CSSProperties} src="/uses/cleanshotx_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Cleanshot X<span className="sYNf1KiD size-2"></span></span></div>
+                            <div className="xpOMMgya" data-app="10"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"1"} as React.CSSProperties} src="/uses/screen_studio_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Screen Studio<span className="sYNf1KiD size-2"></span></span></div>
+                            <div className="xpOMMgya" data-app="11"><div className="GyDeXgjL" style={{"width":"46px","height":"46px"} as React.CSSProperties}><img alt="" loading="lazy" width="66" height="66" decoding="async" data-nimg="1" className="RRPUFNdG size-full" style={{"color":"transparent","scale":"0.82"} as React.CSSProperties} src="/uses/spotify_logo.webp" /></div><span className="vXeeUZqs xYAkETlp">Spotify<span className="sYNf1KiD size-2"></span></span><span className="K2m3JIxG size-[3px]"></span></div>
+                          </div>
+                        </div>
+                        <p className="ZtQuGT5E">MacBook M5 Pro · 24GB · 1TB</p>
+                      </div>
+                    </div>
+                    <div className="pointer-events-none z-10 flex flex-col gap-1 p-5 absolute inset-x-0 top-0 text-left">
+                      <p className="SS7b4Jbv">Workstation</p>
+                      <p className="font-medium font-sans text-neutral-700 text-xl leading-snug tracking-tight dark:text-neutral-300">Everything on my desk and dock</p>
+                    </div>
+                    <div className="d2cXUZSH"></div>
+                    <div className="mZj45wrX size-9">
+                      <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" className="GWHFBD1D size-[18px]">
+                        <path d="M18.5 12L4.99997 12" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path>
+                        <path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path>
+                      </svg>
+                    </div>
+                  </Link>
+                </div>
+
+                <div className="ewWjk03W">
+                  <Link className="group relative flex w-full flex-col justify-between overflow-hidden rounded-3xl bg-surface transition-all duration-300 hover:bg-white dark:bg-card/15 dark:hover:bg-card/5 ring-1 ring-border in-data-tray:bg-[#F7F7F8] dark:in-data-tray:bg-[#0f0f10] in-data-tray:hover:bg-white dark:in-data-tray:hover:bg-[#131314] cursor-pointer S6LgrV3h press" data-cuelume-navigate="select" data-hover-cue="" href="/about">
+                    <div className="size-full">
+                      <div className="RD1cQ1kx">
+                        <div className="T3iY4b68">
+                          <div className="w93ScpRo">
+                            <span className="U3QL9u2x"></span>
+                            <span className="f9aQyiCn"></span>
+                            <span aria-hidden="true" className="sWVGFhon">tamiulalam.com · tamiulalam.com · tamiulalam.com · tamiulalam.com · tamiulalam.com · tamiulalam.com</span>
+                          </div>
+                          <span className="ihu2p2Tv"></span>
+                          <div className="sKUOTI5M">
+                            <div className="bJNaBhlI">
+                              <svg viewBox="0 0 5350 5350" xmlns="http://www.w3.org/2000/svg" className="zpzXQgij">
+                                <path d="M 800 650 L 2380 650 A 70 70 0 0 1 2450 720 L 2450 1140 A 70 70 0 0 1 2380 1210 L 1730 1210 L 1730 4000 A 70 70 0 0 1 1660 4070 L 1240 4070 A 70 70 0 0 1 1170 4000 L 1170 1210 L 520 1210 A 70 70 0 0 1 458 1128 L 738 678 A 70 70 0 0 1 800 650 Z" fill="#fff"></path>
+                                <path d="M 2820 650 L 3310 650 A 70 70 0 0 1 3373 690 L 3850 1560 L 4327 690 A 70 70 0 0 1 4390 650 L 4880 650 A 70 70 0 0 1 4950 720 L 4950 4000 A 70 70 0 0 1 4880 4070 L 4460 4070 A 70 70 0 0 1 4390 4000 L 4390 2050 L 3915 2915 A 70 70 0 0 1 3785 2915 L 3310 2050 L 3310 4000 A 70 70 0 0 1 3240 4070 L 2820 4070 A 70 70 0 0 1 2750 4000 L 2750 720 A 70 70 0 0 1 2820 650 Z" fill="#fff"></path>
+                              </svg>
+                              <span className="MgspzG7o"></span>
+                            </div>
+                            <div className="LZWLUzrI" style={{"filter":"drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff)"} as React.CSSProperties}>
+                              <img alt="Tamiul Alam" loading="lazy" width="640" height="598" decoding="async" data-nimg="1" className="tILfvsBF" style={{"color":"transparent"} as React.CSSProperties} sizes="216px" src="/tamim-cutout.webp" />
+                            </div>
+                            <span aria-hidden="true" className="KZqgskwc"></span>
+                          </div>
+                          <span className="J4iTBoyc">
+                            <svg aria-hidden="true" className="mLG5qyoy size-full" viewBox="-14 -2 28 48">
+                              <defs>
+                                <linearGradient gradientUnits="userSpaceOnUse" id="_S_2_-steel" x1="-10" x2="10" y1="0" y2="42"><stop offset="0" stopColor="#f5f6f8"></stop><stop offset="0.3" stopColor="#b9bcc4"></stop><stop offset="0.5" stopColor="#eceef1"></stop><stop offset="0.75" stopColor="#868991"></stop><stop offset="1" stopColor="#d9dce2"></stop></linearGradient>
+                                <clipPath id="_S_2_-above"><rect height="20" width="28" x="-14" y="-2"></rect></clipPath>
+                                <clipPath id="_S_2_-hole"><rect x="-20" y="33" width="40" height="10" rx="5"></rect></clipPath>
+                              </defs>
+                              <path d="M-6 6A6 4 0 0 1 6 6" fill="none" stroke="#4a4c53" strokeLinecap="round" strokeWidth="2.8000000000000003"></path>
+                              <path d="M-6 6A6 4 0 0 1 6 6" fill="none" stroke="url(#_S_2_-steel)" strokeLinecap="round" strokeWidth="2.2"></path>
+                              <path d="M-6 6A6 4 0 0 1 6 6" fill="none" stroke="rgb(255 255 255 / 0.75)" strokeLinecap="round" strokeWidth="0.48400000000000004"></path>
+                              <g clipPath="url(#_S_2_-above)">
+                                <path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="#4a4c53" strokeLinecap="round" strokeWidth="3.2"></path>
+                                <path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="url(#_S_2_-steel)" strokeLinecap="round" strokeWidth="2.6"></path>
+                                <path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="rgb(255 255 255 / 0.75)" strokeLinecap="round" strokeWidth="0.5720000000000001"></path>
+                              </g>
+                              <g clipPath="url(#_S_2_-hole)" opacity="0.7">
+                                <path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="#4a4c53" strokeLinecap="round" strokeWidth="3.2"></path>
+                                <path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="url(#_S_2_-steel)" strokeLinecap="round" strokeWidth="2.6"></path>
+                                <path d="M3.59 7.15A8 15 -8 0 1 -0.5899999999999999 36.85A8 15 -8 0 1 3.59 7.15Z" fill="none" stroke="rgb(255 255 255 / 0.75)" strokeLinecap="round" strokeWidth="0.5720000000000001"></path>
+                              </g>
+                              <path d="M3.59 7.15A8 15 -8 0 0 -0.5899999999999999 36.85" fill="none" stroke="#4a4c53" strokeLinecap="round" strokeWidth="3.2"></path>
+                              <path d="M3.59 7.15A8 15 -8 0 0 -0.5899999999999999 36.85" fill="none" stroke="url(#_S_2_-steel)" strokeLinecap="round" strokeWidth="2.6"></path>
+                              <path d="M3.59 7.15A8 15 -8 0 0 -0.5899999999999999 36.85" fill="none" stroke="rgb(255 255 255 / 0.75)" strokeLinecap="round" strokeWidth="0.5720000000000001"></path>
+                              <path d="M6 6A6 4 0 0 1 -6 6" fill="none" stroke="#4a4c53" strokeLinecap="round" strokeWidth="2.8000000000000003"></path>
+                              <path d="M6 6A6 4 0 0 1 -6 6" fill="none" stroke="url(#_S_2_-steel)" strokeLinecap="round" strokeWidth="2.2"></path>
+                              <path d="M6 6A6 4 0 0 1 -6 6" fill="none" stroke="rgb(255 255 255 / 0.75)" strokeLinecap="round" strokeWidth="0.48400000000000004"></path>
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="pointer-events-none z-10 flex flex-col gap-1 p-5 absolute inset-x-0 top-0 text-left">
+                      <p className="SS7b4Jbv">Behind The Code</p>
+                      <p className="font-medium font-sans text-neutral-700 text-xl leading-snug tracking-tight dark:text-neutral-300">Journey, skills &amp; experience</p>
+                    </div>
+                    <div className="d2cXUZSH"></div>
+                    <div className="mZj45wrX size-9">
+                      <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" className="GWHFBD1D size-[18px]">
+                        <path d="M18.5 12L4.99997 12" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path>
+                        <path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path>
+                      </svg>
+                    </div>
+                  </Link>
+                </div>
+
+                <div className="ewWjk03W">
+                  <Link className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-surface transition-all duration-300 hover:bg-white dark:bg-card/15 dark:hover:bg-card/5 ring-1 ring-border in-data-tray:bg-[#F7F7F8] dark:in-data-tray:bg-[#0f0f10] in-data-tray:hover:bg-white dark:in-data-tray:hover:bg-[#131314] cursor-pointer size-full S6LgrV3h press" data-cuelume-navigate="select" data-hover-cue="" href="/guestbook">
+                    <div className="size-full">
+                      <figure aria-label="Notes from the guestbook" className="NrvN0rSh">
+                        <div aria-hidden="true" className="z9d3ma3A"></div>
+                        <blockquote className="Cvtwys2p" style={{"left":"3%","top":"38%","--r":"-5deg","--dx":"-4px","--dy":"-8px","transitionDelay":"0ms"} as React.CSSProperties}>
+                          <div aria-hidden="true" className="UhBJZT5Y"><div className="wMp7CRsK"><span className="I1uZnctc" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span><span className="wJuWcYHg"></span></div></div>
+                          <div className="jRpojyvs"><p className="KWag9Rms">AMAZING!!! beautifully designed. very unique. thoughtfully put together.</p><footer className="ItR_9W_className K2svS3Qu aH2411SH">— Charvi Vatsh</footer></div>
+                          <span className="kOXq7NpZ"><svg aria-hidden="true" className="WQfR1czF" viewBox="0 0 16 48"><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"5deg"} as React.CSSProperties}><rect fill="#d2ad7c" height="46" rx="2" width="7" x="1" y="1"></rect><path d="M3 6v36M5.5 10v28" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"-5deg"} as React.CSSProperties}><rect fill="#c39c69" height="46" rx="2" width="7" x="8" y="1"></rect><path d="M11 5v38M13 12v24" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><rect fill="#9ca3af" height="4" rx="1" width="16" y="17"></rect><rect fill="#e5e7eb" height="1" width="16" y="17.5"></rect></svg></span>
+                        </blockquote>
+                        <blockquote className="Cvtwys2p" style={{"left":"34%","top":"44%","--r":"3deg","--dx":"0px","--dy":"-10px","transitionDelay":"40ms"} as React.CSSProperties}>
+                          <div aria-hidden="true" className="UhBJZT5Y"><div className="nNmyqpz8"><span className="CmSHJlYp" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span><span className="I66HOEnU"></span></div></div>
+                          <div className="jRpojyvs"><p className="smGvI5Ir">The best software engineer portfolio I've ever seen.</p><footer className="ItR_9W_className K2svS3Qu UrM7zHVc">— Arthur Ferreira Costa</footer></div>
+                          <span className="kOXq7NpZ"><svg aria-hidden="true" className="WQfR1czF" viewBox="0 0 16 48"><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"5deg"} as React.CSSProperties}><rect fill="#d2ad7c" height="46" rx="2" width="7" x="1" y="1"></rect><path d="M3 6v36M5.5 10v28" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"-5deg"} as React.CSSProperties}><rect fill="#c39c69" height="46" rx="2" width="7" x="8" y="1"></rect><path d="M11 5v38M13 12v24" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><rect fill="#9ca3af" height="4" rx="1" width="16" y="17"></rect><rect fill="#e5e7eb" height="1" width="16" y="17.5"></rect></svg></span>
+                        </blockquote>
+                        <blockquote className="Cvtwys2p" style={{"left":"64%","top":"36%","--r":"-3deg","--dx":"4px","--dy":"-8px","transitionDelay":"80ms"} as React.CSSProperties}>
+                          <div aria-hidden="true" className="UhBJZT5Y"><div className="ZRByEz6x"><div className="KwXbixTI size-full"><span className="CmSHJlYp" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span></div></div></div>
+                          <div className="jRpojyvs"><p className="smGvI5Ir">Loved your website. perfect blending example of interface and experience!</p><footer className="ItR_9W_className K2svS3Qu UrM7zHVc">— Dhruv Panchal</footer></div>
+                          <span className="kOXq7NpZ"><svg aria-hidden="true" className="WQfR1czF" viewBox="0 0 16 48"><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"5deg"} as React.CSSProperties}><rect fill="#d2ad7c" height="46" rx="2" width="7" x="1" y="1"></rect><path d="M3 6v36M5.5 10v28" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"-5deg"} as React.CSSProperties}><rect fill="#c39c69" height="46" rx="2" width="7" x="8" y="1"></rect><path d="M11 5v38M13 12v24" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><rect fill="#9ca3af" height="4" rx="1" width="16" y="17"></rect><rect fill="#e5e7eb" height="1" width="16" y="17.5"></rect></svg></span>
+                        </blockquote>
+                        <blockquote className="Cvtwys2p" style={{"left":"15%","top":"80%","--r":"4deg","--dx":"-10px","--dy":"2px","transitionDelay":"120ms"} as React.CSSProperties}>
+                          <div aria-hidden="true" className="UhBJZT5Y"><div className="CroGjWuf"><span className="CmSHJlYp" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span><span className="NNgioKFt"></span><span className="QB4X7Wib"></span></div></div>
+                          <div className="kZyFMmTz"><p className="smGvI5Ir">Yo Tamiul. Your website is looking better by the day. Really impressive work 🎉</p><footer className="ItR_9W_className K2svS3Qu UrM7zHVc">— Jono</footer></div>
+                          <span className="kOXq7NpZ"><svg aria-hidden="true" className="WQfR1czF" viewBox="0 0 16 48"><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"5deg"} as React.CSSProperties}><rect fill="#d2ad7c" height="46" rx="2" width="7" x="1" y="1"></rect><path d="M3 6v36M5.5 10v28" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><g className="oBAWPHVg group-hover/pin:motion-safe:animate-peg-open" style={{"--peg":"-5deg"} as React.CSSProperties}><rect fill="#c39c69" height="46" rx="2" width="7" x="8" y="1"></rect><path d="M11 5v38M13 12v24" stroke="#a8814f" strokeOpacity="0.35" strokeWidth="0.5"></path></g><rect fill="#9ca3af" height="4" rx="1" width="16" y="17"></rect><rect fill="#e5e7eb" height="1" width="16" y="17.5"></rect></svg></span>
+                        </blockquote>
+                        <div aria-hidden="true" className="EHLjTuLw">
+                          <div className="PTYUsCGt"><span className="CmSHJlYp" style={{"backgroundImage":"url(\"data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'&gt;&lt;filter id='g'&gt;&lt;feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/&gt;&lt;feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.22 0'/&gt;&lt;/filter&gt;&lt;rect width='100%' height='100%' filter='url(%23g)'/&gt;&lt;/svg&gt;\")"} as React.CSSProperties}></span></div>
+                          <span className="oku6rFHR">POST CARD</span>
+                          <span className="RwDsmMdT"></span>
+                          <div className="nJW6SGYS"><span className="ItR_9W_className NhE2Ogcd">Your note here →</span></div>
+                        </div>
+                      </figure>
+                    </div>
+                    <div className="pointer-events-none z-10 flex flex-col gap-1 p-5 absolute inset-x-0 top-0 text-left">
+                      <p className="SS7b4Jbv">Guestbook</p>
+                      <p className="font-medium font-sans text-neutral-700 text-xl leading-snug tracking-tight dark:text-neutral-300">Sign the wall, leave a note</p>
+                    </div>
+                    <div className="d2cXUZSH"></div>
+                    <div className="mZj45wrX size-9">
+                      <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" className="GWHFBD1D size-[18px]">
+                        <path d="M18.5 12L4.99997 12" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path>
+                        <path d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path>
+                      </svg>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+              <span aria-hidden="true" className="OtybCf2U size-[5px] m7aWZARZ" data-node="top"></span>
+              <span aria-hidden="true" className="OtybCf2U size-[5px] SdCAH6sp" data-node="top"></span>
+              <span aria-hidden="true" className="OtybCf2U size-[5px] vgoN9Yn8" data-node="bottom"></span>
+              <span aria-hidden="true" className="OtybCf2U size-[5px] OpiMbwgW" data-node="bottom"></span>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />
